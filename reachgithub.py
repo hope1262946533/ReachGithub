@@ -8,11 +8,9 @@ html = urllib.request.urlopen(url).read().decode('utf-8')
 
 ip = re.findall(r"<tr><th>IP Address</th><td><ul class=\"comma-separated\"><li>(.+?)</li></ul></td></tr>", html)[0]
 
-# filepath = '/etc/hosts'
-filepath = 'hosts'
+filepath = '/etc/hosts'
 fp = open(filepath)
 content = fp.read()
-print(content)
 has_github_address = content.find(" github.com", 0, len(content))
 
 if has_github_address == -1: #github doesn't exist
