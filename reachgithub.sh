@@ -3,7 +3,8 @@ hosts_file="/etc/hosts"
 hostname="github.com"
 
 # 发送HTTP请求并提取IP地址
-ip_address=$(curl -s https://sites.ipaddress.com/github.com/ | grep -oP '(?<=<a href="https:\/\/www\.ipaddress\.com\/ipv4\/)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=">)' | head -n 1)
+# ip_address=$(curl -s https://sites.ipaddress.com/github.com/ | grep -oP '(?<=<a href="https:\/\/www\.ipaddress\.com\/ipv4\/)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+(?=">)' | head -n 1)
+ip_address=$(curl -s https://www.ipaddress.com/website/github.com | grep -oP '(?<=GitHub resolves to the IPv4 address <em>)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' | head -n 1)
 # ip_address="140.82.112.3"
 
 echo "Ip address of ${hostname} is: "${ip_address}
